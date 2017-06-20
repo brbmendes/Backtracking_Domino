@@ -1,0 +1,23 @@
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\bin\Debug\Backtracking_Domino.exe.config
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_1.txt
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_2.txt
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_3.txt
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\bin\Debug\Backtracking_Domino.exe
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\bin\Debug\Backtracking_Domino.pdb
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\obj\Debug\Backtracking_Domino.csprojResolveAssemblyReference.cache
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\obj\Debug\Backtracking_Domino.exe
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\obj\Debug\Backtracking_Domino.pdb
+U:\Desenvolvimento\Source Codes and Projects\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_4.txt
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\Backtracking_Domino.exe.config
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\obj\Debug\Backtracking_Domino.exe
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\obj\Debug\Backtracking_Domino.pdb
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_2.txt
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_4.txt
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_3.txt
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\Backtracking_Domino.exe
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\Backtracking_Domino.pdb
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_5.txt
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_6.txt
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\bin\Debug\game_1.txt
+C:\Users\14203025\Downloads\Backtracking_Domino\Backtracking_Domino\obj\Debug\Backtracking_Domino.csprojResolveAssemblyReference.cache
+E:\PUCRS\2017-1\Complexidade_e_otimizacao\Backtracking_Domino\Backtracking_Domino\bin\Debug\Backtracking_Domino.exe.config
