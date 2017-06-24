@@ -1,10 +1,12 @@
 ﻿
-// Authors: Bruno Bragança Mendes e Andressa Fernanda Idalgo de Farias
-// Date: 20/06/2017
-// E-mail: bruno.braganca@acad.pucrs.br
+// Author:          Bruno Bragança Mendes
+// Date:            20/06/2017
+// Last edition:    24/06/2017
+// E-mail:          bruno.braganca@acad.pucrs.br
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -82,16 +84,16 @@ namespace Backtracking_Domino.Src
 
         public static bool fitDominoPiece(LinkedList<Piece> domino, LinkedList<Piece> availablePieces)
         {
-            var allPiecesWereUsed = availablePieces.All(piece => piece.hasUsed == true);
+            var allPiecesWereUsed = availablePieces.All(piece => piece.hasUsed);
 
-            if (allPiecesWereUsed == true)
+            if (allPiecesWereUsed)
             {
                 return true;
             }
 
             foreach (Piece p in availablePieces)
             {
-                if (p.hasUsed == false)
+                if (!p.hasUsed)
                 {
                     if (domino.Last.Value.rightSide == p.leftSide)
                     {
@@ -133,39 +135,50 @@ namespace Backtracking_Domino.Src
         static void Main(string[] args)
         {
 
+            List<string[]> inputList = new List<string[]>();
+
+            foreach (string inputFile in args)
+            {
+                var f = File.ReadAllLines(inputFile).Concat(new String[] { inputFile }).ToArray();
+                inputList.Add(f);
+            }
+
             #region Files list for read. DON'T FORGET TO CHANGE THE FILE NAMES.
 
-            string[] file1 = File.ReadAllLines("game_1.txt");
-            string[] file2 = File.ReadAllLines("game_2.txt");
-            string[] file3 = File.ReadAllLines("game_3.txt");
-            string[] file4 = File.ReadAllLines("game_4.txt");
-            string[] file5 = File.ReadAllLines("game_5.txt");
-            string[] file6 = File.ReadAllLines("game_6.txt");
-            //string[] file7 = File.ReadAllLines("game_7.txt");
-            //string[] file8 = File.ReadAllLines("game_8.txt");
-            //string[] file9 = File.ReadAllLines("game_9.txt");
-            //string[] file10 = File.ReadAllLines("game_10.txt");
+            //string[] file0 = File.ReadAllLines(args[0]);
+            //var file0 = File.ReadAllLines("case04.txt").Concat(new String[] { "case04.txt" }).ToArray();
+            //var file1 = File.ReadAllLines("case06.txt").Concat(new String[] { "case06.txt" }).ToArray();
+            //var file2 = File.ReadAllLines("case10.txt").Concat(new String[] { "case10.txt" }).ToArray();
+            //var file3 = File.ReadAllLines("case11.txt").Concat(new String[] { "case11.txt" }).ToArray();
+            //var file4 = File.ReadAllLines("case12.txt").Concat(new String[] { "case12.txt" }).ToArray();
+            //var file5 = File.ReadAllLines("case13.txt").Concat(new String[] { "case13.txt" }).ToArray();
+            //var file6 = File.ReadAllLines("case14.txt").Concat(new String[] { "case14.txt" }).ToArray();
+            //var file7 = File.ReadAllLines("case15.txt").Concat(new String[] { "case15.txt" }).ToArray();
+            //var file8 = File.ReadAllLines("case16.txt").Concat(new String[] { "case16.txt" }).ToArray();
+            //var file9 = File.ReadAllLines("case18.txt").Concat(new String[] { "case18.txt" }).ToArray();
 
-            List<string[]> listOfFiles = new List<string[]>();
-            listOfFiles.Add(file1);
-            listOfFiles.Add(file2);
-            listOfFiles.Add(file3);
-            listOfFiles.Add(file4);
-            listOfFiles.Add(file5);
-            listOfFiles.Add(file6);
+            //List<string[]> listOfFiles = new List<string[]>();
+            //listOfFiles.Add(file0);
+            //listOfFiles.Add(file1);
+            //listOfFiles.Add(file2);
+            //listOfFiles.Add(file3);
+            //listOfFiles.Add(file4);
+            //listOfFiles.Add(file5);
+            //listOfFiles.Add(file6);
             //listOfFiles.Add(file7);
             //listOfFiles.Add(file8);
             //listOfFiles.Add(file9);
-            //listOfFiles.Add(file10);
 
             #endregion
 
             int count = 1;
-            foreach (String[] file in listOfFiles)
+            //foreach (String[] file in listOfFiles)
+            foreach (String[] file in inputList)
             {
                 Console.WriteLine("###########################################################################");
-                Console.WriteLine("\n\nReading File {0}....\n", count);
-                var listPieces = file.Skip(1);
+                Console.WriteLine("\n\nReading File ==> {0}....\n", file.Last());
+                var listPieces = file.Skip(1).TakeWhile(item => !(item.Equals(file.Last())));
+
                 LinkedList<Piece> availablePieces = new LinkedList<Piece>();
 
                 foreach (var line in listPieces)
@@ -175,8 +188,13 @@ namespace Backtracking_Domino.Src
 
                 LinkedList<Piece> domino = new LinkedList<Piece>();
 
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 startDomino(domino, availablePieces);
+                sw.Stop();
+
                 count++;
+                Console.WriteLine("Tempo de execução: \t {0}", sw.Elapsed.ToString());
                 Console.WriteLine("###########################################################################");
             }
             Console.ReadKey();
