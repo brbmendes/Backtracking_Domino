@@ -1,13 +1,15 @@
-﻿
-// Authors: Bruno Bragança Mendes e Andressa Fernanda Idalgo de Farias
-// Date: 20/06/2017
-// E-mail: bruno.braganca@acad.pucrs.br
-
+﻿/// <summary>
+/// exe             : Backtracking_Domino.exe
+/// Description     : Backtracking solution to a Dominoes game
+/// Usage           : In command line, run "Backtracking_Domino.exe X Y Z", where X, Y and Z are the test files to verify if exists at least one solution to that pieces. Submit at least one test file.
+/// Output          : The Dominoes mounted or the list of pieces.
+/// Author          : Bruno Bragança Mendes <bbmendes@gmail.com>
+/// Date            : Mon, 2017 Jun 23, 13:44:51 BRT
+/// Version         : 1.0
+/// </summary>
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backtracking_Domino.Src
 {

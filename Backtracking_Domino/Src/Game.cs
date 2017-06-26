@@ -1,16 +1,17 @@
-﻿
-// Author:          Bruno Bragança Mendes
-// Date:            20/06/2017
-// Last edition:    24/06/2017
-// E-mail:          bruno.braganca@acad.pucrs.br
-
+﻿/// <summary>
+/// exe             : Backtracking_Domino.exe
+/// Description     : Backtracking solution to a Dominoes game
+/// Usage           : In command line, run "Backtracking_Domino.exe X Y Z", where X, Y and Z are the test files to verify if exists at least one solution to that pieces. Submit at least one test file.
+/// Output          : The Dominoes mounted or the list of pieces.
+/// Author          : Bruno Bragança Mendes <bbmendes@gmail.com>
+/// Date            : Mon, 2017 Jun 23, 13:44:51 BRT
+/// Version         : 1.0
+/// </summary>
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backtracking_Domino.Src
 {
@@ -134,70 +135,55 @@ namespace Backtracking_Domino.Src
 
         static void Main(string[] args)
         {
-
-            List<string[]> inputList = new List<string[]>();
-
-            foreach (string inputFile in args)
+            try
             {
-                var f = File.ReadAllLines(inputFile).Concat(new String[] { inputFile }).ToArray();
-                inputList.Add(f);
-            }
-
-            #region Files list for read. DON'T FORGET TO CHANGE THE FILE NAMES.
-
-            //string[] file0 = File.ReadAllLines(args[0]);
-            //var file0 = File.ReadAllLines("case04.txt").Concat(new String[] { "case04.txt" }).ToArray();
-            //var file1 = File.ReadAllLines("case06.txt").Concat(new String[] { "case06.txt" }).ToArray();
-            //var file2 = File.ReadAllLines("case10.txt").Concat(new String[] { "case10.txt" }).ToArray();
-            //var file3 = File.ReadAllLines("case11.txt").Concat(new String[] { "case11.txt" }).ToArray();
-            //var file4 = File.ReadAllLines("case12.txt").Concat(new String[] { "case12.txt" }).ToArray();
-            //var file5 = File.ReadAllLines("case13.txt").Concat(new String[] { "case13.txt" }).ToArray();
-            //var file6 = File.ReadAllLines("case14.txt").Concat(new String[] { "case14.txt" }).ToArray();
-            //var file7 = File.ReadAllLines("case15.txt").Concat(new String[] { "case15.txt" }).ToArray();
-            //var file8 = File.ReadAllLines("case16.txt").Concat(new String[] { "case16.txt" }).ToArray();
-            //var file9 = File.ReadAllLines("case18.txt").Concat(new String[] { "case18.txt" }).ToArray();
-
-            //List<string[]> listOfFiles = new List<string[]>();
-            //listOfFiles.Add(file0);
-            //listOfFiles.Add(file1);
-            //listOfFiles.Add(file2);
-            //listOfFiles.Add(file3);
-            //listOfFiles.Add(file4);
-            //listOfFiles.Add(file5);
-            //listOfFiles.Add(file6);
-            //listOfFiles.Add(file7);
-            //listOfFiles.Add(file8);
-            //listOfFiles.Add(file9);
-
-            #endregion
-
-            int count = 1;
-            //foreach (String[] file in listOfFiles)
-            foreach (String[] file in inputList)
-            {
-                Console.WriteLine("###########################################################################");
-                Console.WriteLine("\n\nReading File ==> {0}....\n", file.Last());
-                var listPieces = file.Skip(1).TakeWhile(item => !(item.Equals(file.Last())));
-
-                LinkedList<Piece> availablePieces = new LinkedList<Piece>();
-
-                foreach (var line in listPieces)
+                if(args.Length == 0)
                 {
-                    availablePieces.AddLast(new Piece(line));
+                    Console.WriteLine("Impossible run Backtracking_Domino without test files.");
                 }
+                else
+                {
+                    List<string[]> inputList = new List<string[]>();
 
-                LinkedList<Piece> domino = new LinkedList<Piece>();
+                    foreach (string inputFile in args)
+                    {
+                        var f = File.ReadAllLines(inputFile).Concat(new String[] { inputFile }).ToArray();
+                        inputList.Add(f);
+                    }
 
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
-                startDomino(domino, availablePieces);
-                sw.Stop();
+                    int count = 1;
+                    foreach (String[] file in inputList)
+                    {
+                        Console.WriteLine("###########################################################################");
+                        Console.WriteLine("\n\nReading File ==> {0}....\n", file.Last());
+                        var listPieces = file.Skip(1).TakeWhile(item => !(item.Equals(file.Last())));
 
-                count++;
-                Console.WriteLine("Tempo de execução: \t {0}", sw.Elapsed.ToString());
-                Console.WriteLine("###########################################################################");
+                        LinkedList<Piece> availablePieces = new LinkedList<Piece>();
+
+                        foreach (var line in listPieces)
+                        {
+                            availablePieces.AddLast(new Piece(line));
+                        }
+
+                        LinkedList<Piece> domino = new LinkedList<Piece>();
+
+                        Stopwatch sw = new Stopwatch();
+                        sw.Start();
+                        startDomino(domino, availablePieces);
+                        sw.Stop();
+
+                        count++;
+                        Console.WriteLine("Tempo de execução: \t {0}", sw.Elapsed.ToString());
+                        Console.WriteLine("###########################################################################");
+                    }
+                }
+                
+                Console.ReadKey();
             }
-            Console.ReadKey();
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 
