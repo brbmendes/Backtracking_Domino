@@ -9,14 +9,16 @@
 /// </summary>
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 namespace Backtracking_Domino.Src
 {
     class Game
     {
+        /// <summary>
+        /// Show the Dominoes after finding a solution.
+        /// </summary>
+        /// <param name="domino">The solution found.</param>
         public static void showDomino(LinkedList<Piece> domino)
         {
             Console.WriteLine("Solution has found. The solution is: \n\n");
@@ -27,6 +29,10 @@ namespace Backtracking_Domino.Src
             Console.Write("\n\n");
         }
 
+        /// <summary>
+        /// Show the Dominoes pieces after run all possibilities and not finding a solution.
+        /// </summary>
+        /// <param name="availablePieces">All pieces of Domino.</param>
         public static void showPieces(LinkedList<Piece> availablePieces)
         {
             Console.WriteLine("No solution has found. The pieces were: \n\n");
@@ -37,6 +43,11 @@ namespace Backtracking_Domino.Src
             Console.Write("\n\n");
         }
 
+        /// <summary>
+        /// Start the game.
+        /// </summary>
+        /// <param name="domino">The Domino will be mounted.</param>
+        /// <param name="availablePieces">All pieces of Domino.</param>
         public static void startDomino(LinkedList<Piece> domino, LinkedList<Piece> availablePieces)
         {
             bool haveHappyEnding = false;
@@ -83,6 +94,12 @@ namespace Backtracking_Domino.Src
             }
         }
 
+        /// <summary>
+        /// Verify if a piece can fit in the Domino.
+        /// </summary>
+        /// <param name="domino">The Domino will be mounted.</param>
+        /// <param name="availablePieces">All pieces of Domino.</param>
+        /// <returns>True if a piece fit, false otherwise.</returns>
         public static bool fitDominoPiece(LinkedList<Piece> domino, LinkedList<Piece> availablePieces)
         {
             var allPiecesWereUsed = availablePieces.All(piece => piece.hasUsed);
@@ -132,59 +149,5 @@ namespace Backtracking_Domino.Src
             }
             return false;
         }
-
-        static void Main(string[] args)
-        {
-            try
-            {
-                if(args.Length == 0)
-                {
-                    Console.WriteLine("Impossible run Backtracking_Domino without test files.");
-                }
-                else
-                {
-                    List<string[]> inputList = new List<string[]>();
-
-                    foreach (string inputFile in args)
-                    {
-                        var f = File.ReadAllLines(inputFile).Concat(new String[] { inputFile }).ToArray();
-                        inputList.Add(f);
-                    }
-
-                    int count = 1;
-                    foreach (String[] file in inputList)
-                    {
-                        Console.WriteLine("###########################################################################");
-                        Console.WriteLine("\n\nReading File ==> {0}....\n", file.Last());
-                        var listPieces = file.Skip(1).TakeWhile(item => !(item.Equals(file.Last())));
-
-                        LinkedList<Piece> availablePieces = new LinkedList<Piece>();
-
-                        foreach (var line in listPieces)
-                        {
-                            availablePieces.AddLast(new Piece(line));
-                        }
-
-                        LinkedList<Piece> domino = new LinkedList<Piece>();
-
-                        Stopwatch sw = new Stopwatch();
-                        sw.Start();
-                        startDomino(domino, availablePieces);
-                        sw.Stop();
-
-                        count++;
-                        Console.WriteLine("Tempo de execução: \t {0}", sw.Elapsed.ToString());
-                        Console.WriteLine("###########################################################################");
-                    }
-                }
-                
-                Console.ReadKey();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
     }
-
 }

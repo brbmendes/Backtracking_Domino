@@ -15,10 +15,26 @@ namespace Backtracking_Domino.Src
 {
     class Piece
     {
+        /// <summary>
+        /// Right side of a piece.
+        /// </summary>
         public int rightSide { get; set; }
+
+        /// <summary>
+        /// Left side of a piece.
+        /// </summary>
         public int leftSide { get; set; }
+
+        /// <summary>
+        /// Control key to verify if the piece has already used in the game.
+        /// </summary>
         public bool hasUsed { get; set; }
 
+        /// <summary>
+        /// Single constructor of a piece.
+        /// </summary>
+        /// <param name="leftSide">The left side value of a piece.</param>
+        /// <param name="rightSide">The right side value of a piece.</param>
         public Piece(int leftSide, int rightSide)
         {
             this.leftSide = leftSide;
@@ -26,6 +42,10 @@ namespace Backtracking_Domino.Src
             this.hasUsed = false;
         }
 
+        /// <summary>
+        /// Construct a piece from a String.
+        /// </summary>
+        /// <param name="line">The string containing the both values (left and right) of a piece.</param>
         public Piece(String line)
         {
             String[] splitted = line.Split(' ');
@@ -34,6 +54,9 @@ namespace Backtracking_Domino.Src
             this.hasUsed = false;
         }
 
+        /// <summary>
+        /// Change the left and right value of a piece.
+        /// </summary>
         public void swapSides()
         {
             int aux = this.leftSide;
