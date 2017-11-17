@@ -9,8 +9,11 @@ Este projeto foi criado a partir de um trabalho da disciplina de Complexidade e 
 
 ###  Entrada do programa ###
 >      Arquivos de texto com a extensão .txt.
+
 >      Na primeira linha, é informada quantas peças serão utilizadas no jogo.
+
 >      As peças contém os dois números separados por um espaço simples.   
+
 >      Em geral, as peças vão de 0 até 10, mas pode ter valores maiores que 10.
       
 >      Ex: game_1.txt
@@ -24,7 +27,9 @@ Este projeto foi criado a partir de um trabalho da disciplina de Complexidade e 
   
 ###  Utilização do programa ###
 >    Dentro do repositório, no diretório "Backtracking_Domino-master\Backtracking_Domino master\Backtracking_Domino\bin\Debug\" contém um arquivo chamado "Backtracking_Domino.cheating". 
+
 >    Renomeie o arquivo para "Backtracking_Domino.exe"
+
 >    Execute o arquivo, informando por parâmetro um ou mais arquivos de entrada conforme o exemplo abaixo.
     
     Ex: Backtracking_Domino-master\Backtracking_Domino-master\Backtracking_Domino\bin\Debug\Backtracking_Domino.exe game_1.txt game_2.txt game_3.txt game_4.txt game_5.txt game_6.txt
