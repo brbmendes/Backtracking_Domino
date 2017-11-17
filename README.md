@@ -13,14 +13,14 @@ Este projeto foi criado a partir de um trabalho da disciplina de Complexidade e 
 >      As peças contém os dois números separados por um espaço simples.   
 >      Em geral, as peças vão de 0 até 10, mas pode ter valores maiores que 10.
       
-      Ex: game_1.txt
+>      Ex: game_1.txt
       
-      5
-      1 3
-      4 8
-      4 1
-      5 4
-      5 8
+>      5
+>      1 3
+>      4 8
+>      4 1
+>      5 4
+>      5 8
   
 ###  Utilização do programa ###
 >    Dentro do repositório, no diretório "Backtracking_Domino-master\Backtracking_Domino master\Backtracking_Domino\bin\Debug\" contém um arquivo chamado "Backtracking_Domino.cheating". 
